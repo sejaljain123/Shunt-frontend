@@ -1,0 +1,22 @@
+.branch-container {
+  display: flex;
+  /* margin: 5rem; */
+  justify-content: space-around;
+  height: 80vh;
+  align-items: center;
+}
+
+.branchCard {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.branchCard h1 {
+  font-size: 3rem;
+}
+.branch-content {
+  font-size: 1.2rem;
+  align-items: flex-start;
+  text-align: left;
+}

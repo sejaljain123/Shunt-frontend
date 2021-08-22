@@ -1,0 +1,40 @@
+.home {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.inputContainer {
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.illustrationContainer {
+  width: 40%;
+}
+.search {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.search Button {
+  margin-left: 20px;
+}
+.list {
+  margin-top: 3rem;
+}
+.list div {
+  margin-top: 0.8rem;
+}
+/* 
+.branchContainer{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} */

@@ -1,0 +1,51 @@
+.notifications {
+  max-height: 50vh;
+  overflow-y: scroll;
+  width: 30%;
+  right: 0;
+  box-shadow: 20px 20px 60px #d9d9d9;
+  position: absolute;
+  margin-left: 20px;
+  background-color: white;
+}
+.not-msgs {
+  margin-top: 20px;
+  line-height: 50px;
+  box-shadow: 10px 10px 20px #d9d9d9;
+  padding: 5px;
+}
+.not-msgs.unread {
+  background-color: #b79cf2;
+}
+.not-msgs.unread:hover {
+  background-color: #d9d9d9;
+}
+.not-msgs:hover {
+  background-color: #d9d9d9;
+  cursor: pointer;
+}
+
+.cross {
+  position: absolute !important;
+  right: 0% !important;
+}
+.cross:hover {
+  background-color: #d9d9d9;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.acc {
+  width: 10%;
+  box-shadow: 20px 20px 60px #d9d9d9;
+  position: absolute;
+  display: flex;
+  right: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.acc p:hover {
+  color: #d9d9d9;
+  cursor: pointer;
+}

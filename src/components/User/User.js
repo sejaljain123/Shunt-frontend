@@ -17,7 +17,7 @@ const User = () => {
   }, []);
 
   const userBranch = async () => {
-    const data = await fetch('http://localhost:5000/branch', {
+    const data = await fetch('https://sp-hunt.herokuapp.com/branch', {
       method: 'get',
       headers: {
         'Content-Type': 'application/json',

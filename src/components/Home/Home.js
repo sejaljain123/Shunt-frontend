@@ -12,7 +12,7 @@ const Home = () => {
 
   const listBranch = async (e) => {
     e.preventDefault();
-    const data = await fetch('http://localhost:5000/listbranches', {
+    const data = await fetch('https://sp-hunt.herokuapp.com/listbranches', {
       method: 'post',
       headers: {
         'Content-Type': 'application/json',

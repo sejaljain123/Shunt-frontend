@@ -91,7 +91,7 @@ const Nav = () => {
     });
   }, []);
   const adminNotifications = async () => {
-    const data = await fetch('http://localhost:5000/adminnotifications', {
+    const data = await fetch('https://sp-hunt.herokuapp.com/adminnotifications', {
       method: 'get',
       headers: {
         'Content-Type': 'application/json',

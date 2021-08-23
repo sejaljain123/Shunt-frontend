@@ -23,7 +23,7 @@ const Admin = () => {
   };
   return (
     <>
-      <Nav branch={branches} />
+      <Nav branch={branches} setBranches={setBranches} listBranch={listBranch} />
       <div className="listAllBranches">
         {branches.map((i) => (
           <div key={i} className="branch_container">

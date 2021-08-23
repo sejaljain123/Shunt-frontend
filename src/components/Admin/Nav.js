@@ -72,12 +72,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Nav = () => {
+const Nav = ({ branches, setBranches, listBranch }) => {
   const classes = useStyles();
   const [notifications, setNotifications] = useState([]);
   const [open, setOpen] = useState(false);
   const [unread, setUnreadcount] = useState(0);
   const [accOpen, setAccOpen] = useState(false);
+  const [search, setSearch] = useState('');
   const history = useHistory();
   const signOut = () => {
     Cookies.remove('token');
@@ -86,6 +87,7 @@ const Nav = () => {
 
   useEffect(() => {
     adminNotifications();
+
     socket.on(`admin-notifications`, () => {
       adminNotifications();
     });
@@ -106,12 +108,35 @@ const Nav = () => {
     res.map((i) => {
       if (i.admin_read === false) {
         count++;
-        toast.info(`Branch named ${i.branchId.branchName} was searched on ${i.date} for pincode ${i.pincode}`, {
-          position: 'top-center',
-        });
+        toast.info(
+          `Branch named ${i.branchId.branchName} was searched on ${i.date} for pincode ${i.pincode}`,
+          {
+            position: 'top-center',
+          }
+        );
       }
     });
     setUnreadcount(count);
+  };
+  useEffect(() => {
+    onSearch();
+  }, [search]);
+
+  const onSearch = async () => {
+    if (search) {
+      const data = await fetch(`https://sp-hunt.herokuapp.com/search?branch=${search}`, {
+        method: 'get',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${Cookies.get('token')}`,
+        },
+      });
+      const res = await data.json();
+      console.log(res);
+      setBranches(res);
+    } else {
+      listBranch();
+    }
   };
   return (
     <div className={classes.grow}>
@@ -129,6 +154,10 @@ const Nav = () => {
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,
+              }}
+              value={search}
+              onChange={(e) => {
+                setSearch(e.target.value);
               }}
               inputProps={{ 'aria-label': 'search' }}
             />

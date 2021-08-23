@@ -118,9 +118,13 @@ const Nav = ({ branches, setBranches, listBranch }) => {
     });
     setUnreadcount(count);
   };
-  useEffect(() => {
-    onSearch();
-  }, [search]);
+  useEffect(
+    () => {
+      onSearch();
+    },
+    // eslint-disable-next-line
+    [search]
+  );
 
   const onSearch = async () => {
     if (search) {

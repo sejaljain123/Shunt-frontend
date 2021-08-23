@@ -28,7 +28,7 @@ const Admin = () => {
         {branches.map((i) => (
           <div key={i} className="branch_container">
             <h2>
-              Branch:{i.branchName},{i.city}
+              Branch:&nbsp;{i.branchName},{i.city}
             </h2>
             <div className="branch_content">
               <p>Incharge: {i.incharge}</p>

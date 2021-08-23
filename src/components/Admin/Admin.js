@@ -33,7 +33,6 @@ const Admin = () => {
             <div className="branch_content">
               <p>Incharge: {i.incharge}</p>
               <p>Address : {i.address}</p>
-
               <p>Pincode: {i.pincode.join(', ')}</p>
               <p>Contact Number: {i.contact.join(', ')}</p>
             </div>

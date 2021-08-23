@@ -8,6 +8,7 @@ const Home = () => {
   const [pincode, setPincode] = useState('');
   const [branches, setBranches] = useState([]);
   const [state, setState] = useState(false);
+  const [emptyRes,setEmptyRes]=useState(false);
   const history = useHistory();
 
   const listBranch = async (e) => {
@@ -23,7 +24,14 @@ const Home = () => {
     });
     const res = await data.json();
     setBranches(res.map((i) => `${i.branchName}, ${i.city}`));
-    setState(true);
+    if(branches.length){
+      setState(true);
+      setEmptyRes(false);
+    }
+    else{
+      setState(false);
+      setEmptyRes(true);
+    }
     console.log(res);
     socket.emit('branches', { data: res, pincode }, (err) => {
       if (err) {
@@ -52,7 +60,9 @@ const Home = () => {
           </Button>
         </div>
         <div className="list">
-          {state ? <h2>Following Branches are available for this Pincode</h2> : ''}
+          {state &&  <h2>Following Branches are available for this Pincode</h2> }
+          {emptyRes && <h2>Bad Bad luck, No Donut for you!!</h2>}
+          
           {branches.map((i) => (
             <div>{i}</div>
           ))}

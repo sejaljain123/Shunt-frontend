@@ -24,7 +24,7 @@ const Home = () => {
     });
     const res = await data.json();
     setBranches(res.map((i) => `${i.branchName}, ${i.city}`));
-    if(branches.length){
+    if(res.length){
       setState(true);
       setEmptyRes(false);
     }
@@ -61,7 +61,7 @@ const Home = () => {
         </div>
         <div className="list">
           {state &&  <h2>Following Branches are available for this Pincode</h2> }
-          {emptyRes && <h2>Bad Bad luck, No Donut for you!!</h2>}
+          {emptyRes && <h2>Bad Bad luck, No Donut for you!!🙁</h2>}
           
           {branches.map((i) => (
             <div>{i}</div>

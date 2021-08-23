@@ -106,7 +106,7 @@ const Nav = () => {
     res.map((i) => {
       if (i.admin_read === false) {
         count++;
-        toast.info(i.message, {
+        toast.info(`Branch named ${i.branchId.branchName} was searched on ${i.date} for pincode ${i.pincode}`, {
           position: 'top-center',
         });
       }
